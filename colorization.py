@@ -21,7 +21,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_acc = 0  # best test accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
 end_epoch = 30
-train_batch_size = 256
+train_batch_size = 128
 test_batch_size = 100
 
 # Prepare dataset and model
