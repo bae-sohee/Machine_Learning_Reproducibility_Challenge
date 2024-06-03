@@ -39,17 +39,18 @@ python make_data.py
 
 To train the rotation predition task on the unlabeled set:
 ```
-python rotation.py
+python rotation.py --dataset <DATASET>
+```
+
+To train the colorization predition task on the unlabeled set:
+```
+python colorization.py --dataset <DATASET>
 ```
 
 To extract pretext task losses and create batches:
 ```
-python make_batches.py
-```
-# Usage Examples for `make_batches.py`
-## Basic Usage
-```sh
 python make_batches.py --dataset <DATASET> --task <TASK>
+```
 
 
 To evaluate on active learning task:
