@@ -20,7 +20,7 @@ args = parser.parse_args()
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_acc = 0  # best test accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
-end_epoch = 1
+end_epoch = 15
 train_batch_size = 256
 test_batch_size = 100
 
