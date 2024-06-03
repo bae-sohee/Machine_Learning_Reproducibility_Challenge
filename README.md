@@ -46,6 +46,11 @@ To extract pretext task losses and create batches:
 ```
 python make_batches.py
 ```
+# Usage Examples for `make_batches.py`
+## Basic Usage
+```sh
+python make_batches.py --dataset <DATASET> --task <TASK>
+
 
 To evaluate on active learning task:
 ```
