@@ -212,13 +212,6 @@ def get_plabels_entropy(net, samples, cycle, sample_ratio=0.2):
     num_samples = int(len(samples) * sample_ratio)
     return samples[idx[-num_samples:]]
 
-def get_classdist(samples):
-    class_dist = np.zeros(10)
-    for sample in samples:
-        label = int(sample.split('/')[-2])
-        class_dist[label] += 1
-    return class_dist
-
 if __name__ == '__main__':
     labeled = []
         
