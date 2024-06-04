@@ -15,7 +15,7 @@
  <tr>
     <td align="center"><a href="https://github.com/Moominci"><img src="https://avatars.githubusercontent.com/u/68638190?v=4" width="130px;" alt=""></td>
     <td align="center"><a href="https://github.com/bae-sohee"><img src="https://avatars.githubusercontent.com/u/123538321?v=4" width="130px;" alt=""></td>
-    <td align="center" style="border-right : 0.5px solid gray"><a href="���� �ڵ�"><img src="https://avatars.githubusercontent.com/u/118954283?v=4" width="130px;" alt=""></td>
+    <td align="center" style="border-right : 0.5px solid gray"><a href="https://github.com/Sunni-yoon"><img src="https://avatars.githubusercontent.com/u/118954283?v=4" width="130px;" alt=""></td>
 
   </tr>
   <tr>
