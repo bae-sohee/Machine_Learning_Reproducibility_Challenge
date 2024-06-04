@@ -3,7 +3,6 @@
 
 ## ▶ Project Objective
   - Review the reproducibility of previously published papers.
-  - By referring to the author's code, we explore the generalizability of thorough moderation, hyperparameter search and utilization of different data, and models. --> 우리가 하고자 하는 목적과 다른 내용이면 제거
   - We experimented by adding a dataset that was not in the official code of the selected paper and adding the code required for the pretext task.
 
 ## ▶ Selected Papers and Official codes
