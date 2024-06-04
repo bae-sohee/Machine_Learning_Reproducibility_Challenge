@@ -164,9 +164,9 @@ python correlation_plot.py --dataset Cifar10 --task rotation
 
 #### colorization
 <p align="center">
-  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/91cfdeb1-3912-43c6-bdcb-2518b8213c3e" width="400" />
-  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/8bceeac8-5cde-405a-a4cc-77e7d38e0620" width="400" />
-  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/ab58252f-1038-46ee-bd62-d5858716bf75" width="400" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/91cfdeb1-3912-43c6-bdcb-2518b8213c3e" width="400" Height="500" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/8bceeac8-5cde-405a-a4cc-77e7d38e0620" width="400" Height="500" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/ab58252f-1038-46ee-bd62-d5858716bf75" width="400" Height="500" />
 </p>
 
 - The correlation between the pretext task loss for colorization and the main task loss was very low across all datasets tested: CIFAR10 ($\rho = -0.06$), Caltech101 ($\rho = 0.00$), and Imbalanced Cifar10 ($\rho = -0.14$). 
