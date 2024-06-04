@@ -57,7 +57,7 @@
     ```
 
 - Create your own virtual environment.
-- Activate your Anaconda virtual environment where you want to install the package. If your virtual environment is named 'testasal', you can type **conda activate test**.
+- Activate your Anaconda virtual environment where you want to install the package. If your virtual environment is named 'test', you can type **conda activate test**.
 - Use the command **pip install -r requirements.txt** to install libraries.
 
 ## Prerequisites
