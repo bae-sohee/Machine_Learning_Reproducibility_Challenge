@@ -63,14 +63,16 @@
 ## Prerequisites
 To generate train and test dataset:
 ```
-python make_data.py
+python make_data.py    
 ```
 - Create the Cifar10, Imbalanced_Cifar10, Caltech101 folder required for the experiment
 
-To train the pretext task (rotation, colorization) on the unlabeled set:
+To train the pretext task(rotation, colorization) on the unlabeled set:
 ```
-python rotation.py --dataset Cifar10
-python colorization.py --dataset Caltech101
+python rotation.py --task rotation --dataset Cifar10
+```
+```
+python colorization.py --task rotation --dataset Cifar10
 ```
 - The dataset and pretext task can be set as an argument, the available datasets include *Cifar10, Imbalanced_Cifar10, Caltech101*, and the available pretext tasks include *rotation, colorization*.
 
