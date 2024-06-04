@@ -138,11 +138,36 @@ python correlation_plot.py --dataset Cifar10 --task rotation
 
 ## Result
 ### Active learning result
-- 이미지
-- 설명
+<p align="center">
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/9e077be3-f1f6-477c-a352-de5e8bac9183" width="300" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/cd5017c5-5b4d-46cd-b262-6724c0a27b17" width="300" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/dc2c1463-0650-45f6-b92c-c0a93649746e" width="300" />
+</p>
+
+- For the CIFAR10 dataset, both PT4AL methods began with about 30% accuracy and reached approximately 90% accuracy by the 10th cycle. Colorization performed better than rotation. The random sampling method started with 30% accuracy and reached 70% by the 10th cycle, but performed worse than the PT4AL methods.
+
+- For the Caltech101 dataset, both PT4AL methods started with about 10% accuracy and reached around 90% accuracy by the 10th cycle, with no significant difference between the two methods. The random sampling method started with 20% accuracy but showed lower performance than the PT4AL methods in the final cycle.
+
+- For the imbalanced CIFAR10 dataset, both PT4AL methods started at about 30% accuracy and reached approximately 80% in the end. Colorization generally showed higher performance than rotation.
+
 ### Correlation result
-- 이미지
-- 설명
+#### rotation
+<p align="center">
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/7d3220cb-2097-4ab6-970b-493c708baeb7" width="300" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/dca3a383-a469-4ecf-b58a-ea478813c62f" width="300" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/5dd605a6-6250-4786-ab1e-eb7221e7ae15" width="300" />
+</p>
+
+- The correlation between the pretext task loss for rotation and the main task loss was very low across all datasets tested: CIFAR10 ($\rho = 0.44$), Caltech101 ($\rho = 0.17$), and Imbalanced Cifar10 ($\rho = 0.42$). These results differed from the original paper, which reported higher correlations: CIFAR10 ($\rho = 0.79$) and Caltech101 ($\rho = 0.78$).
+
+#### colorization
+<p align="center">
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/91cfdeb1-3912-43c6-bdcb-2518b8213c3e" width="300" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/8bceeac8-5cde-405a-a4cc-77e7d38e0620" width="300" />
+  <img src="https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/ab58252f-1038-46ee-bd62-d5858716bf75" width="300" />
+</p>
+
+- The correlation between the pretext task loss for colorization and the main task loss was very low across all datasets tested: CIFAR10 ($\rho = -0.06$), Caltech101 ($\rho = 0.00$), and Imbalanced Cifar10 ($\rho = -0.14$). 
 
 ## Citation
 ```
