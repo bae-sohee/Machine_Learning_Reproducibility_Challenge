@@ -40,7 +40,7 @@
   | --- | --- | --- |
   | GTX-2080TI \* 8 | 11.4 | 8.3 |
 
-- Python version is 3.8.
+- Python version is 3.9.
 - Installing all the requirements may take some time. After installation, you can run the codes.
 - Please notice that we used 'PyTorch' and device type as 'GPU'.
 - We utilized 8 GPUs in our implementation. If the number of GPUs differs, please adjust the code accordingly based on the specific situation.
@@ -49,7 +49,7 @@
     #### In **Anaconda** Environment,
 
     ```
-    $ conda create -n [your virtual environment name] python=3.8
+    $ conda create -n [your virtual environment name] python=3.9
     
     $ conda activate [your virtual environment name]
     
