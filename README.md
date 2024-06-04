@@ -1,78 +1,150 @@
-# [PT4AL: Using Self-Supervised Pretext Tasks for Active Learning (ECCV2022)](https://arxiv.org/abs/2201.07459) - Official Pytorch Implementation
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/using-self-supervised-pretext-tasks-for/active-learning-on-cifar10-10000)](https://paperswithcode.com/sota/active-learning-on-cifar10-10000?p=using-self-supervised-pretext-tasks-for)
 
-# Update Note
+# Machine Learning Reproducibility Challenge (MLRC) of PT4AL 
 
-- We solved all problems. The issue is that the epoch of the rotation prediction task was supposed to run only 15 epochs, but it was written incorrectly as 120 epochs. Sorry for the inconvenience. [2023.01.02]
-- Add Cold Start Experiments
+## ▶ Project Objective
+  - Review the reproducibility of previously published papers.
+  - By referring to the author's code, we explore the generalizability of thorough moderation, hyperparameter search and utilization of different data, and models. --> 우리가 하고자 하는 목적과 다른 내용이면 제거
+  - We experimented by adding a dataset that was not in the official code of the selected paper and adding the code required for the pretext task.
 
+## ▶ Selected Papers and Official codes
+  -  [PT4AL: Using Self-Supervised Pretext Tasks for Active Learning (ECCV2022)](https://arxiv.org/abs/2201.07459)
+  - [Official Pytorch Implementation](https://github.com/johnsk95/PT4AL)
+
+## ▶ Team Member
+
+<table style="border: 0.5px solid gray">
+ <tr>
+    <td align="center"><a href="���� �ڵ�"><img src="https://avatars.githubusercontent.com/u/68638190?v=4" width="130px;" alt=""></td>
+    <td align="center"><a href="https://github.com/bae-sohee"><img src="https://avatars.githubusercontent.com/u/123538321?v=4" width="130px;" alt=""></td>
+    <td align="center" style="border-right : 0.5px solid gray"><a href="���� �ڵ�"><img src="https://avatars.githubusercontent.com/u/118954283?v=4" width="130px;" alt=""></td>
+
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Moominci"><b>MinSeok Yoon</b></td>
+    <td align="center"><a href="https://github.com/bae-sohee"><b>Sohee Bae</b></td>
+    <td align="center" style="border-right : 0.5px solid gray"><a href="https://github.com/Sunni-yoon"><b>Seonyoung Yoon</b></td>
+  </tr>
+</table>
+<br/>
+
+## Overview
+  ![PT4AL](https://github.com/bae-sohee/Machine_Learning_Reproducibility_Challenge/assets/123538321/2e804b12-846f-4424-8fca-7e7599092c1e)
+
+  - This paper proposes an Active learning method using Self-Supervised Pretext Tasks.
+  - First, they learn the representation of unlabeled data using Pretext Task, which initializes the main task model.
+  - Since then, they have proposed an Active learning method that utilizes the loss of Pretext Task to select difficult and representative data.
+
+## Environmnet Setting
+
+- Required Computer Specifications -->  민석님 setting으로 변경해주세요!
+  | GPU | CUDA | CUDNN |  
+  | --- | --- | --- |
+  | RTX-4090 \* 2 | 11.6 | 8.3 |
+
+- Python version is 3.8.
+- Installing all the requirements may take some time. After installation, you can run the codes.
+- Please notice that we used 'PyTorch' and device type as 'GPU'.
+- We utilized 2 GPUs in our implementation. If the number of GPUs differs, please adjust the code accordingly based on the specific situation.
+- [```requirements.txt```] file is required to set up the virtual environment for running the program. This file contains a list of all the libraries needed to run your program and their versions.
+
+    #### In **Anaconda** Environment,
+
+    ```
+    $ conda create -n [your virtual environment name] python=3.8
+    
+    $ conda activate [your virtual environment name]
+    
+    $ pip install -r requirements.txt
+    ```
+
+- Create your own virtual environment.
+- Activate your Anaconda virtual environment where you want to install the package. If your virtual environment is named 'testasal', you can type **conda activate test**.
+- Use the command **pip install -r requirements.txt** to install libraries.
+
+## Prerequisites
+To generate train and test dataset:
 ```
-[solved problem]
-We are redoing the CIFAR10 experiment.
-
-The current reproduction result is the performance of 91 to 93.
-
-We will re-tune the code again for stable performance in the near future.
-
-The rest of the experiments confirmed that there was no problem with reproduction.
+python make_data.py    --> 기존 loader.py였으면 loader.py이름을 변경
 ```
-Sorry for the inconvenience.
-## Experiment Setting:
-- CIFAR10 (downloaded and saved in ```./DATA```
-- Rotation prediction for pretext task
+- Create the Cifar10, Imbalanced_Cifar10, Caltech101 folder required for the experiment
 
-## Prerequisites:
-Python >= 3.7
+To train the pretext task on the unlabeled set:
+```
+python pretext_task.py --task rotation --dataset Cifar10
+```
+- The dataset and pretext task can be set as an argument, the available datasets include *Cifar10, Imbalanced_Cifar10, Caltech101*, and the available pretext tasks include *rotation, colorization*.
 
-CUDA = 11.0
+To extract pretext task losses and create batches:
+  ```
+  python make_batches.py --task rotation --dataset Caltech101
+  ```
+- The dataset and the prext task are set as arguments to extract the loss of the prext task and divide the batches required for learning.
+- The available datasets are *Cifar10, Imbalanced_Cifar10, Caltech101*, and the available pretext tasks are *rotation, colorization*.
+- Sort the loss of the pretext task of each data in ascending order, then divide it into 10 batches and save it as a text file.
+- `loss_{dataset}_{task}` folder : You can check each batch.
+- `{task}_loss_{dataset}.txt`: You can check the loss for the task of each dataset.
 
-PyTorch = 1.7.1
+  ```bash
+  ├── loss_{dataset}_{task}
+  │   ├── batch_0.txt
+  │   │    ...
+  │   ├── batch_9.txt
+  ```
 
-numpy >= 1.16.0
+- Each text file contains, in sequential order, the paths of the corresponding data. An excerpt from an example text file is provided below(ex.loss_Cifar10_rotation/batch_0.txt):
+
+  ```bash
+  ./Cifar10/DATA/train/5/38343.png
+  ./Cifar10/DATA/train/0/29348.png
+  ./Cifar10/DATA/train/5/22390.png
+  ...
+  ```
 
 ## Running the Code
 
-To generate train and test dataset:
+To evaluate on PT4AL task:
 ```
-python make_data.py
+python main.py --dataset Cifar10 --task rotation
 ```
+- Experiments on PT4AL proposed by the paper.
+- Configure the initial sample with the batch of pretext task loss built in advance, and then conduct active learning by sampling data from the loss batch in subsequent cycles.
+- The available datasets are *Cifar10, Imbalanced_Cifar10, Caltech101*, and the available pretext tasks are *rotation, colorization*.
+- Results for the experiment are found in **main_best_{dataset}_{task}.txt**.
 
-To train the rotation predition task on the unlabeled set:
+To evaluate on random sampling active learning task:
 ```
-python rotation.py --dataset <DATASET>
+python main_random.py --dataset Cifar10
 ```
+- Experiment on random sampling for comparison with the proposed method.
+- In the case of initial samples, the data sampled at the time of the cycle is also randomly extracted and active learning is carried out.
+- The available datasets are *Cifar10, Imbalanced_Cifar10, Caltech101*.
+- Results for the experiment are found in **main_best_{dataset}_random.txt**.
 
-To train the colorization predition task on the unlabeled set:
-```
-python colorization.py --dataset <DATASET>
-```
+## Correlation Plot
 
-To extract pretext task losses and create batches:
+To extract a classification loss with superivsed learning:
 ```
-python make_batches.py --dataset <DATASET> --task <TASK>
+python main_supervised.py --dataset Cifar10
 ```
+- In order to verify the assumption of this paper, **'H1: Pretext task loss is correlated with the main task loss'**, we extract the loss of the downstream task.
+- The available datasets are *Cifar10, Imbalanced_Cifar10, Caltech101*.
 
+To determine the correlation between main task loss and pretext task loss:
+```
+python correlation_plot.py --dataset Cifar10 --task rotation
+```
+- It is possible to check the correlation plot between classification loss, which is the main task, and each pretext task loss. (Correlation plot for the entire dataset, and correlation plot sampled 1000 by random)
+- The available datasets are *Cifar10, Imbalanced_Cifar10, Caltech101*, and the available pretext tasks are *rotation, colorization*.
 
-To evaluate on active learning task:
-```
-python main.py
-```
-
-To mask cold start experiments (random)
-```
-python main_random.py
-```
-![image](https://user-images.githubusercontent.com/33244972/210195074-8cc85f97-8a20-4aac-b61b-034e91694788.png)
-
-
-To mask cold start experiments (PT4AL)
-```
-python main_pt4al.py
-```
-![image](https://user-images.githubusercontent.com/33244972/210192180-6158a4ea-052b-4313-baf9-0048aaa5746f.png)
+## Result
+### Active learning result
+- 이미지
+- 설명
+### Correlation result
+- 이미지
+- 설명
 
 ## Citation
-If you use our code in your research, or find our work helpful, please consider citing us with the bibtex below:
 ```
 @inproceedings{yi2022using,
   title = {Using Self-Supervised Pretext Tasks for Active Learning},
