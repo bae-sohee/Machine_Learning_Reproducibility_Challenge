@@ -14,7 +14,7 @@
 
 <table style="border: 0.5px solid gray">
  <tr>
-    <td align="center"><a href="���� �ڵ�"><img src="https://avatars.githubusercontent.com/u/68638190?v=4" width="130px;" alt=""></td>
+    <td align="center"><a href="https://github.com/Moominci"><img src="https://avatars.githubusercontent.com/u/68638190?v=4" width="130px;" alt=""></td>
     <td align="center"><a href="https://github.com/bae-sohee"><img src="https://avatars.githubusercontent.com/u/123538321?v=4" width="130px;" alt=""></td>
     <td align="center" style="border-right : 0.5px solid gray"><a href="���� �ڵ�"><img src="https://avatars.githubusercontent.com/u/118954283?v=4" width="130px;" alt=""></td>
 
@@ -36,15 +36,15 @@
 
 ## Environmnet Setting
 
-- Required Computer Specifications -->  민석님 setting으로 변경해주세요!
+- Required Computer Specifications 
   | GPU | CUDA | CUDNN |  
   | --- | --- | --- |
-  | RTX-4090 \* 2 | 11.6 | 8.3 |
+  | GTX-2080TI \* 8 | 11.4 | 8.3 |
 
 - Python version is 3.8.
 - Installing all the requirements may take some time. After installation, you can run the codes.
 - Please notice that we used 'PyTorch' and device type as 'GPU'.
-- We utilized 2 GPUs in our implementation. If the number of GPUs differs, please adjust the code accordingly based on the specific situation.
+- We utilized 8 GPUs in our implementation. If the number of GPUs differs, please adjust the code accordingly based on the specific situation.
 - [```requirements.txt```] file is required to set up the virtual environment for running the program. This file contains a list of all the libraries needed to run your program and their versions.
 
     #### In **Anaconda** Environment,
@@ -64,7 +64,7 @@
 ## Prerequisites
 To generate train and test dataset:
 ```
-python make_data.py    --> 기존 loader.py였으면 loader.py이름을 변경
+python make_data.py
 ```
 - Create the Cifar10, Imbalanced_Cifar10, Caltech101 folder required for the experiment
 
