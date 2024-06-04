@@ -38,7 +38,7 @@
 - Required Computer Specifications 
   | GPU | CUDA | CUDNN |  
   | --- | --- | --- |
-  | GTX-2080TI \* 8 | 11.4 | 8.1 |
+  | GTX-2080TI \* 8 | 11.4 | 8.2 |
 
 - Python version is 3.9.
 - Installing all the requirements may take some time. After installation, you can run the codes.
