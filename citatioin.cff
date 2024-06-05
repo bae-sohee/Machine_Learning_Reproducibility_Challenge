@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: PT4AL
+authors:
+  - family-names: PT4AL
+url: https://github.com/johnsk95/PT4AL?tab=readme-ov-file
+
+preferred-citation:
+  type: journal-paper
+  title: "PT4AL: Using Self-Supervised Pretext Tasks for Active Learning"
+  authors:
+    - family-names: Yi
+      given-names: John Seon Keun
+    - family-names: Seo
+      given-names: Minseok
+    - family-names: Park
+      given-names: Jongchan
+    - family-names: Choi
+      given-names: Dong-Geol
+  collection-title: Springer
+  year: 2022
+  url: https://link.springer.com/chapter/10.1007/978-3-031-19809-0_34
